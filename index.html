@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Helion - Schedule Alternatives</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h1>Helion</h1>
+
+    <p>Dashboard</p>
+    <p>Tasks</p>
+    <p>Workforce</p>
+    <p class="active">Schedules</p>
+    <p>Risk Monitor</p>
+    <p>Reports</p>
+</div>
+
+<!-- Main Website -->
+<div class="main">
+
+    <div class="topbar">
+        <span>Al Noor Residential Site</span>
+        <span class="username">Omar Hassan</span>
+    </div>
+
+    <!-- PAGE 1: Schedule Alternatives -->
+    <div id="alternatives">
+
+        <h1>Schedule Alternatives</h1>
+
+        <div class="plans">
+
+            <!-- Safest -->
+            <div class="card">
+
+                <h2>Safest</h2>
+
+                <p class="description">
+                    Lowest risk plan with more rest
+                    and a steadier pace.
+                </p>
+
+                <hr>
+
+                <table>
+                    <tr>
+                        <td>Average Risk</td>
+                        <th>Low - Medium</th>
+                    </tr>
+
+                    <tr>
+                        <td>Estimated Completion</td>
+                        <th>5:30 PM</th>
+                    </tr>
+
+                    <tr>
+                        <td>Workers Assigned</td>
+                        <th>12</th>
+                    </tr>
+
+                    <tr>
+                        <td>Rest Periods</td>
+                        <th>4</th>
+                    </tr>
+                </table>
+
+                <button onclick="selectPlan('Safest')">
+                    View Details
+                </button>
+
+            </div>
+
+            <!-- Balanced -->
+            <div class="card balanced">
+
+                <h2>Balanced</h2>
+
+                <p class="description">
+                    Optimal trade-off between safety,
+                    productivity, and crew capacity.
+                </p>
+
+                <hr>
+
+                <table>
+                    <tr>
+                        <td>Average Risk</td>
+                        <th>Medium</th>
+                    </tr>
+
+                    <tr>
+                        <td>Estimated Completion</td>
+                        <th>4:30 PM</th>
+                    </tr>
+
+                    <tr>
+                        <td>Workers Assigned</td>
+                        <th>14</th>
+                    </tr>
+
+                    <tr>
+                        <td>Rest Periods</td>
+                        <th>3</th>
+                    </tr>
+                </table>
+
+                <button onclick="selectPlan('Balanced')">
+                    View Details
+                </button>
+
+            </div>
+
+            <!-- Fastest -->
+            <div class="card">
+
+                <h2>Fastest / Productivity</h2>
+
+                <p class="description">
+                    Highest productivity plan to
+                    finish work earliest.
+                </p>
+
+                <hr>
+
+                <table>
+                    <tr>
+                        <td>Average Risk</td>
+                        <th>Medium - High</th>
+                    </tr>
+
+                    <tr>
+                        <td>Estimated Completion</td>
+                        <th>3:45 PM</th>
+                    </tr>
+
+                    <tr>
+                        <td>Workers Assigned</td>
+                        <th>16</th>
+                    </tr>
+
+                    <tr>
+                        <td>Rest Periods</td>
+                        <th>2</th>
+                    </tr>
+                </table>
+
+                <button onclick="selectPlan('Fastest')">
+                    View Details
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PAGE 2: Schedule Approval -->
+    <div id="approval">
+
+        <h1>Schedule Review & Approval</h1>
+
+        <div class="status">
+            <h2 id="planTitle">
+                Balanced Plan - Awaiting Approval
+            </h2>
+        </div>
+
+        <div class="schedule">
+            <h2>Full-Day Schedule</h2>
+            <p>Example crew assignments for the selected plan</p>
+
+            <table>
+                <tr class="table-header">
+                    <th>Crew</th>
+                    <th>Task</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                </tr>
+
+                <tr>
+                    <td>Crew A</td>
+                    <td>Concrete Pouring</td>
+                    <td>7:00 AM</td>
+                    <td>11:00 AM</td>
+                </tr>
+
+                <tr>
+                    <td>Crew B</td>
+                    <td>Scaffolding Setup</td>
+                    <td>7:00 AM</td>
+                    <td>10:00 AM</td>
+                </tr>
+
+                <tr>
+                    <td>Crew C</td>
+                    <td>Material Delivery</td>
+                    <td>7:00 AM</td>
+                    <td>10:30 AM</td>
+                </tr>
+
+                <tr>
+                    <td>Crew D</td>
+                    <td>Electrical Inspection</td>
+                    <td>7:00 AM</td>
+                    <td>10:00 AM</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Schedule Summary -->
+        <div class="summary">
+
+            <h2>Schedule Summary</h2>
+
+            <table>
+                <tr>
+                    <td>Selected Plan</td>
+                    <th id="selectedName">Balanced</th>
+                </tr>
+
+                <tr>
+                    <td>Predicted Risk</td>
+                    <th id="selectedRisk">Medium</th>
+                </tr>
+
+                <tr>
+                    <td>Estimated Completion</td>
+                    <th id="selectedTime">4:30 PM</th>
+                </tr>
+
+                <tr>
+                    <td>Workers Assigned</td>
+                    <th id="selectedWorkers">14</th>
+                </tr>
+
+                <tr>
+                    <td>Rest Periods</td>
+                    <th id="selectedRest">3</th>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="actions">
+            <button onclick="goBack()">
+                Back to Alternatives
+            </button>
+
+            <button class="approve" id="approveButton"
+                    onclick="approveSchedule()">
+                Approve Schedule
+            </button>
+        </div>
+
+        <p id="approvalMessage"></p>
+
+    </div>
+
+</div>
+
+</body>
+</html>
