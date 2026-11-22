@@ -1,4 +1,3 @@
-
 // Store the selected schedule
 var selectedPlan = "";
 
